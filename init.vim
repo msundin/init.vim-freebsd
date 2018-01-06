@@ -352,7 +352,7 @@ map <leader>q :e ~/buffer<cr>
 map <leader>x :e ~/buffer.md<cr>
 
 " Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
+map <leader>p :setlocal paste!<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -468,21 +468,21 @@ set pastetoggle=<F10>
 " live substitute
 set inccommand=nosplit
 " Point to the Python executables
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3.6'
+let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3.6'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins (Vim-Plug)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
 
 " UI
-""Plug 'trevordmiller/nova-vim'
-""Plug 'vim-airline/vim-airline'            " Handy info
+"Plug 'trevordmiller/nova-vim'
+Plug 'vim-airline/vim-airline'            " Handy info
 ""Plug 'retorillo/airline-tablemode.vim'
 ""Plug 'edkolev/tmuxline.vim'               " Make the Tmux bar match Vim
 ""Plug 'ryanoasis/vim-webdevicons'
 "Plug 'machakann/vim-highlightedyank'
-"Plug 'altercation/vim-colors-solarized' 
+Plug 'altercation/vim-colors-solarized' 
 "Plug 'junegunn/goyo.vim'
 "Plug 'itchyny/lightline.vim'
 
@@ -525,16 +525,21 @@ call plug#begin()
 
 " Task Running
 ""Plug 'tpope/vim-dispatch'                 " Run tasks asychronously in Tmux
-"Plug 'w0rp/ale'                           " Linter
+Plug 'w0rp/ale'                           " Linter
 ""Plug 'wincent/terminus'
 ""Plug 'christoomey/vim-tmux-navigator'
 ""Plug 'Olical/vim-enmasse'                 " Edit all files in a Quickfix list
 ""Plug 'janko-m/vim-test'
 
 " Autocomplete {{{3
-"Plug 'Shougo/deoplete.nvim',              { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim',              { 'do': ':UpdateRemotePlugins' }
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ternjs/tern_for_vim',               { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs',          { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/jspc.vim',                   { 'for': ['javascript', 'javascript.jsx'] }
 ""Plug 'zchee/deoplete-jedi'
-""Plug 'carlitux/deoplete-ternjs'
 ""Plug 'alexlafroscia/deoplete-flow',       { 'branch': 'pass-filename-to-autocomplete' }
 "Plug 'wokalski/autocomplete-flow'
 " For func argument completion
@@ -543,8 +548,8 @@ call plug#begin()
 
 " Language Support {{{3
 " JavaScript {{{4
-"Plug 'pangloss/vim-javascript'
-"Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 "Plug 'rhysd/npm-debug-log.vim'
 "Plug '~/projects/vim-plugins/vim-ember-cli'
 "Plug 'AndrewRadev/ember_tools.vim'
@@ -626,7 +631,7 @@ nnoremap tn :tabnew<CR>
 nnoremap tc :CtrlSpaceTabLabel<CR>
 nnoremap td :tabclose<CR>
 
-set completeopt-=preview
+"set completeopt-=preview
 
 if filereadable($DOTFILES . "/nvim/init.local.vim")
   source $DOTFILES/nvim/init.local.vim
@@ -634,3 +639,40 @@ endif
 
 set background=dark
 colorscheme solarized
+
+
+" PLUGIN CONFIGS
+
+" Omnifunc settings for autocomplete
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
+
+" Deoplete sources for autocomplete
+set completeopt=longest,menuone,preview
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['member', 'file', 'ultisnips', 'ternjs']
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
+
+" Tab for everthing except UltiSnips which uses C-j
+autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:UltiSnipsExpandTrigger="<C-j>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
+" Ale
+let g:ale_linters = {
+\   'javascript': ['eslint', 'flow'],
+\   'html': []
+\}
+
+let g:ale_fixers = {
+\   'javascript': ['eslint']
+\}
+
+nmap <leader>d <Plug>(ale_fix)
