@@ -351,10 +351,6 @@ map <leader>q :e ~/buffer<cr>
 " Quickly open a markdown buffer for scribble
 map <leader>x :e ~/buffer.md<cr>
 
-" Toggle paste mode on and off
-map <leader>p :setlocal paste!<cr>
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -477,14 +473,14 @@ call plug#begin()
 
 " UI
 "Plug 'trevordmiller/nova-vim'
-Plug 'vim-airline/vim-airline'            " Handy info
-""Plug 'retorillo/airline-tablemode.vim'
+"Plug 'vim-airline/vim-airline'            " Handy info
+"Plug 'retorillo/airline-tablemode.vim'
 ""Plug 'edkolev/tmuxline.vim'               " Make the Tmux bar match Vim
 ""Plug 'ryanoasis/vim-webdevicons'
 "Plug 'machakann/vim-highlightedyank'
 Plug 'altercation/vim-colors-solarized' 
-"Plug 'junegunn/goyo.vim'
-"Plug 'itchyny/lightline.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'itchyny/lightline.vim'
 
 " Project Navigation
 ""Plug 'junegunn/fzf',                      { 'dir': '~/.fzf', 'do': './install --all' }
@@ -553,25 +549,25 @@ Plug 'mxw/vim-jsx'
 "Plug 'rhysd/npm-debug-log.vim'
 "Plug '~/projects/vim-plugins/vim-ember-cli'
 "Plug 'AndrewRadev/ember_tools.vim'
-"Plug 'neovim/node-host',                  { 'do': 'yarn install' }
+Plug 'neovim/node-host',                  { 'do': 'yarn install' }
 
 " TypeScript {{{4
-"Plug 'HerringtonDarkholme/yats.vim'
-"Plug 'mhartington/nvim-typescript',       { 'do': ':UpdateRemotePlugins' }
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript',       { 'do': ':UpdateRemotePlugins' }
 
 " Elm {{{4
 ""Plug 'ElmCast/elm-vim'
 
 " HTML {{{4
-"Plug 'othree/html5.vim',                  { 'for': 'html' }
-"Plug 'mustache/vim-mustache-handlebars'
-"Plug 'mattn/emmet-vim'
+Plug 'othree/html5.vim',                  { 'for': 'html' }
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'mattn/emmet-vim'
 
 " CSS {{{4
-"Plug 'hail2u/vim-css3-syntax',            { 'for': 'css' }
+Plug 'hail2u/vim-css3-syntax',            { 'for': 'css' }
 
 " Sass {{{4
-"Plug 'cakebaker/scss-syntax.vim'
+Plug 'cakebaker/scss-syntax.vim'
 
 " Ruby {{{4
 "Plug 'vim-ruby/vim-ruby',                 { 'for': 'ruby' }
@@ -595,9 +591,9 @@ Plug 'mxw/vim-jsx'
 "Plug 'zchee/deoplete-go'
 
 " Markdown {{{4
-"Plug 'reedes/vim-pencil'                  " Markdown, Writing
-"Plug 'godlygeek/tabular',                 { 'for': 'markdown' } " Needed for vim-markdown
-"Plug 'plasticboy/vim-markdown',           { 'for': 'markdown' }
+Plug 'reedes/vim-pencil'                  " Markdown, Writing
+Plug 'godlygeek/tabular',                 { 'for': 'markdown' } " Needed for vim-markdown
+Plug 'plasticboy/vim-markdown',           { 'for': 'markdown' }
 
 " Elixir {{{4
 "Plug 'elixir-editors/vim-elixir'
@@ -618,7 +614,7 @@ call plug#end()
 "nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " Smarter pasting
-"nnoremap <Leader>p :set invpaste paste?<CR>
+nnoremap <Leader>p :set invpaste paste?<CR>
 
 " -- Smart indent when entering insert mode with i on empty lines --------------
 
@@ -676,3 +672,13 @@ let g:ale_fixers = {
 \}
 
 nmap <leader>d <Plug>(ale_fix)
+
+" tern
+
+let g:tern_show_argument_hints = 'on_move'
+
+autocmd FileType javascript nnoremap <S-k> :TernDoc<CR>
+
+" vim-javascrip
+" Enable JSDoc highlighting
+let g:javascript_plugin_jsdoc = 1
