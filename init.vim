@@ -652,6 +652,7 @@ let g:deoplete#sources = {}
 let g:deoplete#sources['javascript.jsx'] = ['member', 'file', 'ultisnips', 'ternjs']
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
+let g:deoplete#sources#ternjs#types = 1
 
 " Tab for everthing except UltiSnips which uses C-j
 autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
@@ -682,3 +683,22 @@ autocmd FileType javascript nnoremap <S-k> :TernDoc<CR>
 " vim-javascrip
 " Enable JSDoc highlighting
 let g:javascript_plugin_jsdoc = 1
+
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_ignore_case = 1
+    let g:deoplete#enable_smart_case = 1
+    let g:deoplete#enable_camel_case = 1
+    let g:deoplete#enable_refresh_always = 1
+    let g:deoplete#max_abbr_width = 0
+    let g:deoplete#max_menu_width = 0
+    let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+    call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
+
+    let g:tern_request_timeout = 1
+    let g:tern_request_timeout = 6000
+    let g:tern#command = ["tern"]
+    let g:tern#arguments = ["--persistent"]
+    let g:deoplete#sources#tss#javascript_support = 1
+    let g:tsuquyomi_javascript_support = 1
+    let g:tsuquyomi_auto_open = 1
+    let g:tsuquyomi_disable_quickfix = 1
