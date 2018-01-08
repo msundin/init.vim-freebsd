@@ -1,2 +1,2 @@
 # init.vim
-Neovim dotfile
+Neovim dotfiles for FreeBSD
