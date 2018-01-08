@@ -485,26 +485,26 @@ Plug 'itchyny/lightline.vim'
 " Project Navigation
 ""Plug 'junegunn/fzf',                      { 'dir': '~/.fzf', 'do': './install --all' }
 ""Plug 'junegunn/fzf.vim'
-"Plug 'mhinz/vim-grepper'
-"Plug 'scrooloose/nerdtree'
-"Plug 'mileszs/ack.vim'
+Plug 'mhinz/vim-grepper'
+Plug 'scrooloose/nerdtree'
+Plug 'mileszs/ack.vim'
 ""Plug 'vim-scripts/ctags.vim'              " ctags related stuff
 ""Plug 'majutsushi/tagbar'
 
 " File Navigation
 ""Plug 'vim-scripts/matchit.zip'            " More powerful % matching
 ""Plug 'Lokaltog/vim-easymotion'            " Move like the wind!
-"Plug 'jeffkreeftmeijer/vim-numbertoggle'  " Smarter line numbers
-"Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'jlanzarotta/bufexplorer'
-"Plug 'amix/open_file_under_cursor.vim'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'  " Smarter line numbers
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'amix/open_file_under_cursor.vim'
 ""Plug 'wellle/targets.vim'
 ""Plug 'kshenoy/vim-signature'
-""Plug 'haya14busa/incsearch.vim'           " Better search highlighting
+Plug 'haya14busa/incsearch.vim'           " Better search highlighting
 
 " Editing {{{3
-"Plug 'tpope/vim-surround'                 " Change word surroundings
-"Plug 'tpope/vim-commentary'               " Comments stuff
+Plug 'tpope/vim-surround'                 " Change word surroundings
+Plug 'tpope/vim-commentary'               " Comments stuff
 ""Plug 'tpope/vim-repeat'
 ""Plug 'dhruvasagar/vim-table-mode',        { 'on': 'TableModeEnable' }
 ""Plug 'kana/vim-textobj-user'
