@@ -441,9 +441,9 @@ nnoremap <S-Enter> O<Esc>
 nnoremap <CR> o<Esc>
 " show row numbers
 set number
-" Make it obvious where 95 characters is
+" Make it obvious where 80 characters is
 if exists('+colorcolumn')
-  set textwidth=95
+  set textwidth=80
   set colorcolumn=+1
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
