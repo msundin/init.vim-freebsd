@@ -433,8 +433,18 @@ endfunc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Customizations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" map ESC to jj
-"inoremap jj <esc>
+" map ESC to jk
+inoremap jk <esc>
+" map ESC and save to jkl
+inoremap jkl <esc>:w
+" map ESC, save and quit to jkl;
+inoremap jkl; <esc>:wq
+" map ESC, save and quit to jklö
+inoremap jklö <esc>:wq
+" map ESC and quit without saving to ;lkj
+inoremap ;lkj <esc>:q!
+" map ESC and quit without saving to ölkj
+inoremap ölkj <esc>:q!
 " new line below current in normal mode
 nnoremap <S-Enter> O<Esc>
 " new line above current in normal mode
