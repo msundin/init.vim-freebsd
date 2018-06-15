@@ -434,17 +434,23 @@ endfunc
 " => Customizations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " map ESC to jk
-noremap jk <esc>
+inoremap jk <esc>
+nnoremap jk <esc>
 " map ESC and save to jkl
-noremap jkl <esc>:w<cr>
+inoremap jkl <esc>:w<cr>
+nnoremap jkl <esc>:w<cr>
 " map ESC, save and quit to jkl;
-noremap jkl; <esc>:wq<cr>
+inoremap jkl; <esc>:wq<cr>
+nnoremap jkl; <esc>:wq<cr>
 " map ESC, save and quit to jklö
-noremap jklö <esc>:wq<cr>
+inoremap jklö <esc>:wq<cr>
+nnoremap jklö <esc>:wq<cr>
 " map ESC and quit without saving to ;lkj
-noremap ;lkj <esc>:q!<cr>
+inoremap ;lkj <esc>:q!<cr>
+nnoremap ;lkj <esc>:q!<cr>
 " map ESC and quit without saving to ölkj
-noremap ölkj <esc>:q!<cr>
+inoremap ölkj <esc>:q!<cr>
+nnoremap ölkj <esc>:q!<cr>
 " new line below current in normal mode
 nnoremap <S-Enter> O<Esc>
 " new line above current in normal mode
