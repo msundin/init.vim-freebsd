@@ -436,15 +436,15 @@ endfunc
 " map ESC to jk
 inoremap jk <esc>
 " map ESC and save to jkl
-inoremap jkl <esc>:w
+inoremap jkl <esc>:w<cr>
 " map ESC, save and quit to jkl;
-inoremap jkl; <esc>:wq
+inoremap jkl; <esc>:wq<cr>
 " map ESC, save and quit to jklö
-inoremap jklö <esc>:wq
+inoremap jklö <esc>:wq<cr>
 " map ESC and quit without saving to ;lkj
-inoremap ;lkj <esc>:q!
+inoremap ;lkj <esc>:q!<cr>
 " map ESC and quit without saving to ölkj
-inoremap ölkj <esc>:q!
+inoremap ölkj <esc>:q!<cr>
 " new line below current in normal mode
 nnoremap <S-Enter> O<Esc>
 " new line above current in normal mode
